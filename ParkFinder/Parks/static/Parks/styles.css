@@ -27,7 +27,7 @@ body {
     margin: 0;
     text-align: center;
     font-family: 'Merriweather', serif; 
-    background-color: #F4A442;
+    background-color: #FFAF24;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
@@ -52,12 +52,12 @@ ul {
 /* Set navbar text color. */
 .navbar-dark .navbar-brand {
     margin-left: 1rem;
-    color: #F4A442;
+    color: #FFAF24;
 }
 
 /* Set the hover state so that there no effects. */
 .navbar-dark .navbar-brand:hover {
-    color: #f7c35e;
+    color: #c48300;
 }
 
 .parkfinder-font-size {
@@ -72,34 +72,34 @@ ul {
 .navbar-dark .navbar-nav .nav-link {
     margin-left: 1rem;
     font-size: 1.5rem;
-    color: #F4A442;
+    color: #FFAF24;
 }
 
 /* Set the hover state so that there are different color effects. */
 .navbar-dark .navbar-nav .nav-link:hover {
-    color: #f7c35e;
+    color: #c48300;
 }
 
 /* Set the color of the hamburger menu outline. */
 .navbar-dark .navbar-toggler {
     margin-right: 1rem;
-    color: #F4A442;
+    color: #FFAF24;
 }
 
 /* Style the color of the header section. */
 #navbar-header {
-    background-color: #125C13;
+    background-color: #125106; /* #125C13; */
 }
 
 /* === HOMEPAGE SECTION === */
 
 /* Add styles to the button on the homepage. */
 .home-button {
-    background-color: #125C13; /* Green */
+    background-color: #125106; /* Green */
     border: none;
     width: 12.5rem;
     border-radius: 1.875rem;
-    color: #F4A442;
+    color: #FFAF24;
     padding: 15px 32px;
     text-align: center;
     text-decoration: none;
@@ -117,7 +117,7 @@ ul {
 
 /* Style the specified text with a brownish color */
 .browner-text {
-    color: #F4A442;
+    color: #FFAF24;
 }
 
 /* Set the color for the background of the home screen. */
@@ -142,7 +142,7 @@ ul {
     border: none;
     width: 10.5rem;
     border-radius: 0.5rem;
-    color: #F4A442;
+    color: #FFAF24;
     padding: 15px 32px;
     margin-left: 0.25rem !important;
     margin-right: 0.25rem !important;
@@ -160,22 +160,63 @@ ul {
 
 /* Style the heading text on the 'find trails' page. */
 .find-parks-text {
-    color:#125C13;
+    color:#125106;
     padding: 1rem;
 }
 
-/* === PARKS SECTION === */
+/* === PARKS PAGE SECTION === */
 
+/* Style the back button on the parks page. */
 .back-button {
     margin-top: 1rem;
     margin-bottom: 1.5rem;
+}
+
+/* Style the park button that is listed out on the page. */
+.park-button {
+    display: block;
+    width: 100%;
+    border: 0;
+}
+
+/* Style the card color. */
+.card-background-color {
+    background-color: #125106;
+    /* margin-top: 1rem;
+    margin-bottom: 1rem;
+    margin-right: 1rem;
+    margin-left: 1rem; */
+}
+
+/* Style the button color. */
+.card-text-indent {
+    text-align: left;
+    margin-left: 1rem;
+    margin-right: 1rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+/* Style the link for directions for a given park. */
+.browner-text-hover:hover {
+    color: #c48300;
+}
+
+/* Style the image so that it spans the width of the button. */
+.img-format {
+    display: block !important;
+    width: 100% !important;
+    z-index: 0;
+    margin: 0;
+    padding: 0;
+    outline: none;
 }
 
 /* === ABOUT PAGE SECTION === */
 
 /* Style the heading of the about page. */
 .about-heading {
-    color: #125C13;
+    color: #125106;
     font-size: 2rem;
 }
 
@@ -186,7 +227,7 @@ ul {
     text-align: left;
     border: 0.25rem;
     border-style: solid;
-    border-color: #125C13;
+    border-color: #125106;
     padding: 2%;
 }
 
@@ -211,14 +252,14 @@ ul {
 
 /* Style the text in the footer section of the website. */
 .footer-design {
-    color: #F4A442;
+    color: #FFAF24;
     text-align: center;
     margin-top: 0;
 }
 
 /* Style the line and make it greenish. */
 .green-line {
-    color: #125C13;
+    color: #125106;
     opacity: 50%;
     height: 0.25rem !important;
     border: none;
@@ -226,7 +267,7 @@ ul {
 
 /* Make the text greenish. */
 .green-text {
-    color: #125C13;
+    color: #125106;
 }
 
 /* Add some space between the map on any page. */
@@ -237,7 +278,7 @@ ul {
 
 /* Style the background color of the footer section. */
 #footer-section {
-    background-color: #125C13;
+    background-color: #125106;
     margin-top: auto;
     padding-top: 1rem;
 }

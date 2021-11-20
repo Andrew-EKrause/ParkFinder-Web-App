@@ -10,7 +10,7 @@
 {% block content %}   
    <div class="body">
         <!-- Include a heading that indicates what state you are exploring for parks -->
-        <h1 class="home">National Parks for <span class="green-text">{{ state_name }}</span></h2>
+        <h1 class="home green-text">National Parks for <em>{{ state_name }}</em></h2>
         
         <!-- Include a map for the page that the user can use -->
         <!-- BEGIN Hiking Project -->
@@ -26,45 +26,37 @@
             out all of the national parks in the given state
         -->
         <div>
-            <h1>TEST ONE:</h1>
-            <h2>National Park Name: {{ full_name }}</h1>
-            <h3>Button state: {{ state_code }}</h1>
-            <h3>API state: {{ states }}</h1>
+            <h3>TEST ONE (Delete later):</h1>
+            <h3>National Park Name: {{ full_name }}</h1>
+            <h4>Button state: {{ state_code }}</h1>
+            <h4>API state: {{ states }}</h1>
         </div>
 
 
-        <div class="card" style="width: 18rem;">
-            <button type="" data-bs-toggle="collapse" data-bs-target="#collapse-events" aria-expanded="false" aria-controls="collapse-events">
-                <img class="card-img-top" src="{{ image }}" alt="Card image cap">
-                <div class="card-body">
-                    <h5 class="card-title">{{ fullName }}</h5>
+        <!-- ADD A FOR LOOP TO SURROUND THE DIV RIGHT BELOW ONCE YOU GET THE API WORKING!!! -->
+
+
+        <!-- AS SOON AS YOU GET THE API WORKING, MAKE SURE YOU UNCOMMENT THE IF-STATEMENT CODE BELOW!!! -->
+        {% comment %} {% if state_code == states %} {% endcomment %}
+            <div class="card browner-text card-background-color" style="width: 25rem;">
+                <button type="submit" class="park-button card-background-color" data-bs-toggle="collapse" data-bs-target="#collapse-park" aria-expanded="false" aria-controls="collapse-events">
+                    <img class="card-img-top img-format" src="{{ image }}" alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-title browner-text">{{ fullName }}</h5>
+                    </div>
+                </button>
+
+                <div class="collapse" id="collapse-park"> 
+                    <p class="card-text card-text-indent">{{ description }}</p>
+                    <ul class="card-text-indent">
+                        <li>State: {{ states }}</li>
+                        <li>Latitude: {{ latitude }}</li>
+                        <li>Longitude: {{ longitude }}</li>
+                        <li><a class="browner-text browner-text-hover" href="{{ directionsUrl }}">Directions</a></li>
+                    </ul>
                 </div>
-            </button>
-
-            <div class="events-list collapse" id="collapse-events"> 
-                <p class="card-text">{{ description }}</p>
-                <ul>
-                    <li>State: {{ states }}</li>
-                    <li>Latitude and Longitude: {{ latitude }}, {{ longitude }}</li>
-                    <li><a href="{{ directionsUrl }}">Directions</a></li>
-                </ul>
             </div>
-        </div>
-
-
-
-
-
-
-
-        <div class="card" style="width: 18rem;">
-            <img class="card-img-top" src="{{ image }}" alt="Card image cap">
-            <div class="card-body">
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            </div>
-        </div>
-
-
+        {% comment %} {% endif %} {% endcomment %}
 
         <!-- Include a back button. -->
         <form action="{% url 'ParkFinder-find_parks' %}" method="POST">
