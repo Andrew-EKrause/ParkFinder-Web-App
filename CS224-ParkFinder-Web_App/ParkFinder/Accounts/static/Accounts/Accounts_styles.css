@@ -1,0 +1,15 @@
+/* 
+ *
+ *
+ */
+
+/* 
+ * IMPORTANT:
+ * You will likely need to hard refresh the page to see the changes in your CSS.
+ * To do this, hit CMD + Shift + R on the keyboard.
+ */
+
+ /* Style the home text of the webpage */
+.home {
+    color: rgb(15, 143, 8);
+}
