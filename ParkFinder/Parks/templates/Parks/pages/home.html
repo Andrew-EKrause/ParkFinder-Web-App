@@ -1,0 +1,35 @@
+<!-- 
+    DESCRIPTION...
+    ...
+    Project: TrailFinder Web Application
+    Authors: Andrew Krause, Anthony Musbach, Gavin McClellan
+    Class: Introduction to Programming Languages (CS 224)
+    Date: 12/06/2021
+    ...
+-->
+
+{% extends "Parks/footer.html" %}
+{% load static %}
+
+<!-- The block contains the code for the body of the home page -->
+{% block content %}
+    <!-- Section for the picture on the webpage -->
+    <section class="container-home home-picture my-auto">
+        <div class="row m-2 text-center">
+            <div>
+                <h1 class="home-heading"><em>Park Finder</em><br></h1>
+                <p class="home-subheading">Find National Parks in the United States</p>
+            </div>
+        </div>
+
+        <!-- Create a form to process when user clicks "Find Parks" button -->
+        <div class="row">
+            <div class="col-lg-4 col-md-4 col-sm-6 col-xs-8 mx-auto lightgreen-text">
+                <form action="{% url 'ParkFinder-find_parks' %}" method="POST"> 
+                    {% csrf_token %}
+                    <button type="submit" class="home-button"><i class="fas fa-hiking"></i> Find Parks</button>
+                </form>
+            </div>
+        </div>
+    </section>
+{% endblock content %}

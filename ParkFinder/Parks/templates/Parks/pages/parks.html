@@ -1,0 +1,75 @@
+<!-- 
+    Author: Andrew Krause
+    Description:
+        Blah blah blah...
+-->
+
+{% extends "Parks/footer.html" %}
+{% load static %}
+
+{% block content %}   
+   <div class="body">
+        <!-- Include a heading that indicates what state you are exploring for parks -->
+        <h1 class="home">National Parks for <span class="green-text">{{ state_name }}</span></h2>
+        
+        <!-- Include a map for the page that the user can use -->
+        <!-- BEGIN Hiking Project -->
+        <iframe class="map-styles" style="width:100%; max-width:600px; height:400px;" frameborder="0" scrolling="no" src="https://www.hikingproject.com/widget/map?favs=1&location=fixed&x=-12573242&y=5811847&z=6.4&h=500"></iframe>
+        <!-- END Hiking Project -->
+
+        <!-- Include the green line as a seperator -->
+        <hr class="green-line">
+
+
+        <!-- 
+            Loop through the data passed through and list 
+            out all of the national parks in the given state
+        -->
+        <div>
+            <h1>TEST ONE:</h1>
+            <h2>National Park Name: {{ full_name }}</h1>
+            <h3>Button state: {{ state_code }}</h1>
+            <h3>API state: {{ states }}</h1>
+        </div>
+
+
+        <div class="card" style="width: 18rem;">
+            <button type="" data-bs-toggle="collapse" data-bs-target="#collapse-events" aria-expanded="false" aria-controls="collapse-events">
+                <img class="card-img-top" src="{{ image }}" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">{{ fullName }}</h5>
+                </div>
+            </button>
+
+            <div class="events-list collapse" id="collapse-events"> 
+                <p class="card-text">{{ description }}</p>
+                <ul>
+                    <li>State: {{ states }}</li>
+                    <li>Latitude and Longitude: {{ latitude }}, {{ longitude }}</li>
+                    <li><a href="{{ directionsUrl }}">Directions</a></li>
+                </ul>
+            </div>
+        </div>
+
+
+
+
+
+
+
+        <div class="card" style="width: 18rem;">
+            <img class="card-img-top" src="{{ image }}" alt="Card image cap">
+            <div class="card-body">
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            </div>
+        </div>
+
+
+
+        <!-- Include a back button. -->
+        <form action="{% url 'ParkFinder-find_parks' %}" method="POST">
+            {% csrf_token %}
+            <button type="submit" class="find-parks-button back-button"><i class="fas fa-arrow-left"></i> Back</button>
+        </form>
+   </div>
+{% endblock content %}     
