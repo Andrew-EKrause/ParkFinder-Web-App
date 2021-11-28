@@ -24,10 +24,10 @@
 
         <!-- Create a form to process when user clicks "Find Parks" button -->
         <div class="row">
-            <div class="mx-auto lightgreen-text"> <!-- col-lg-4 col-md-4 col-sm-6 col-xs-8 -->
+            <div class="mx-auto lightgreen-text">
                 <form action="{% url 'ParkFinder-find_parks' %}" method="POST"> 
                     {% csrf_token %}
-                    <button type="submit" class="home-button"><i class="fas fa-hiking"></i> Find Places</button>
+                    <button type="submit" class="home-button"><i class="fas fa-hiking"></i> Find Parks</button>
                 </form>
             </div>
         </div>

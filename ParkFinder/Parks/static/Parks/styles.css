@@ -152,6 +152,12 @@ ul {
     font-size: 1.15rem;
 }
 
+/* Add a hover state to the button above. */
+.find-parks-button:hover {
+    background-color: #187519; /* Green */
+    transform: scale(1.05);
+}
+
 /* Style the button on the 'find trails' page with longer names. */
 .find-parks-button-small-text {
     background-color: #125C13; /* Green */
@@ -169,7 +175,7 @@ ul {
 }
 
 /* Add a hover state to the button above. */
-.find-parks-button:hover {
+.find-parks-button-small-text:hover {
     background-color: #187519; /* Green */
     transform: scale(1.05);
 }
