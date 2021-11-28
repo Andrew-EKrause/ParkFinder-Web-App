@@ -1,17 +1,32 @@
-"""ParkFinder URL Configuration
+"""
+    ParkFinder URL Configuration
 
-The `urlpatterns` list routes URLs to views. For more information please see:
+    The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/3.2/topics/http/urls/
-Examples:
-Function views
+    
+    Examples:
+    Function views
     1. Add an import:  from my_app import views
     2. Add a URL to urlpatterns:  path('', views.home, name='home')
-Class-based views
+    Class-based views
     1. Add an import:  from other_app.views import Home
     2. Add a URL to urlpatterns:  path('', Home.as_view(), name='home')
-Including another URLconf
+    Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
+    
+    Description:
+    ...
+    The urls.py file in the ParkFinder app for the project contains
+    several import statements as well as some paths to various pages
+    on the web application. The admin route is also established in
+    this file. Some of the accounts are imported from the other apps
+    in the project for use in the main project app.
+    ...
+    Project: ParkFinder Web Application
+    Authors: Andrew Krause, Anthony Musbach, Gavin McCllelan
+    Class: Introduction to Programming Languages (CS 224)
+    Date: 12/06/2021
 """
 
 # Include imports for the urls.py file.

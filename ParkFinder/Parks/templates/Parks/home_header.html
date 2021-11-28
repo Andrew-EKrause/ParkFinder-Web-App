@@ -1,12 +1,23 @@
-<!-- 
-    THIS IS THE CORE OF THE WEB FRAMEWORK IT CONTAINS THE MAIN CONTENT
-    ...
+<!--
+    The home_header file contains the main framework for the
+    ParkFinder web application. In this file, Django templating
+    is used to create a header, dynamic content for the body 
+    (which varies given the different pages of the website), and
+    a footer. Various imports that help with styling such as the
+    Bootstrap CDN are also included in the header of the file.
+    A navigation bar that is used on almsot every page of the 
+    website is included. Different pages are loaded into this
+    home_header file via block tags, which are a feature of 
+    Django. The core framework outlined in this file provides
+    a simple, robust structure for the different pages and 
+    functionalities of the ParkFinder website.
+     ...
     Project: ParkFinder Web Application
     Authors: Andrew Krause, Anthony Musbach, Gavin McClellan
-    Class: Introduction to Programming Languages (CS 224)
+    Class: Introduction to Programming Languages (CS 224)   
     Date: 12/06/2021
     ...
--->
+ -->
 <!DOCTYPE html>
 
 <!-- Load the static files into the web application -->
@@ -83,7 +94,8 @@
         </div>
 
         <!-- Include a link to the JQuery via a Content Delivery Network (CDN). -->
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" 
+        integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
 
         <!-- Include a link to the Outdooractive Web API for mapping data. -->
         <script type="text/javascript" src="//www.outdooractive.com/alpportal/oa_head.js?proj=api-dev-oa&key=yourtest-outdoora-ctiveapi&lang=en&leaflet_gshim=1"></script>

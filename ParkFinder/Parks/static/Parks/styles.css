@@ -1,5 +1,12 @@
 /* 
- * DESCRIPTION...
+ * The CSS file contains code that styles the ParkFinder 
+ * web applicaton. Various tags, classes, and identifiers
+ * are used to make the UI design as clean and user-friendly
+ * as possible. The file breaks the styles applied to the 
+ * different web pages into different sections in order to 
+ * better organize the code. The code in this file pertains
+ * primarily to the HTML pages within the Parks app for the
+ * project.
  * ...
  * Project: ParkFinder Web Application
  * Authors: Andrew Krause, Anthony Musbach, Gavin McClellan
@@ -45,7 +52,7 @@ ul {
     padding: 0px;
 }
 
-/******************************* CLASS SELECTORS *******************************/
+/******************************* CLASS AND ID SELECTORS *******************************/
 
 /* === NAVBAR SECTION === */
 

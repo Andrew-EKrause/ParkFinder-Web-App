@@ -1,9 +1,18 @@
-<!-- 
-    Author: Andrew Krause
-    Description:
-        Blah blah blah...
--->
+<!--
+    The parks file renders the 50 buttons for the 50 U.S. states
+    onto the page. The data is passed in as a list of dictionaries
+    that is analyzed by the Django template code below. The page
+    enables the user to select a state in the U.S. to view the
+    national parks, monuments, and other places within that state.
+     ...
+    Project: ParkFinder Web Application
+    Authors: Andrew Krause, Anthony Musbach, Gavin McClellan
+    Class: Introduction to Programming Languages (CS 224)   
+    Date: 12/06/2021
+    ...
+ -->
 
+<!-- Inlcude import statements -->
 {% extends "Parks/footer.html" %}
 {% load static %}
 
@@ -27,7 +36,7 @@
                             <button type="submit" class="find-parks-button-small-text">{{ state.state_name }}</button>
                         </form><br>
                     </div>
-                <!-- Otherwise use the default styles you have created for all the other states -->
+                <!-- Otherwise, use the default styles you have created for all the other states -->
                 {% else %}
                     <div class="inner">
                         <form action="{% url 'ParkFinder-parks' %}" method="POST"> 

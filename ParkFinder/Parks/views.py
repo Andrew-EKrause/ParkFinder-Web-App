@@ -1,7 +1,17 @@
 """
-    Author: Andrew Krause
     Description:
-        Blah blah blah...
+    ...
+    The views.py file within the Parks app implements an
+    API obtained from the National Park Services (NPS). The 
+    API allows the web application to provide data about 
+    different national parks, monuments, and locations in
+    all 50 states in the U.S. In addition to the use of the
+    API, other pages for the site are rendered within this file.
+    ...
+    Project: ParkFinder Web Application
+    Authors: Andrew Krause, Anthony Musbach, Gavin McCllelan
+    Class: Introduction to Programming Languages (CS 224)
+    Date: 12/06/2021
 """
 
 # National Parks and Services API Key: XApMBEDd2SIXa1aX7bakVem1E28W0wWgtHuGn3SF
@@ -15,12 +25,17 @@ from natlparks import NatlParks
 
 """
     Create the home page for the web application.
+    The home page contains a button for the user 
+    to click when they want to find parks and places
+    to explore.
 """
 def home(request):
     return render(request, 'Parks/pages/home.html')
 
 """
    Create the about page for the web application.
+   The about page describes why the website was
+   created as well as its uses.
 """
 def about(request):
     return render(request, 'Parks/pages/about.html')
@@ -28,6 +43,8 @@ def about(request):
 """
    Create a find parks page for the web application  
    when the user clicks the button on the homepage.
+   The page renders 50 buttons for all of the U.S.
+   states on the page.
 """
 def find_parks(request):
     
@@ -108,6 +125,9 @@ def find_parks(request):
    Create the parks list page for the web application.
    Here we utilize the National Park Services API to 
    obtain park information to display on the frontend.
+   Django contains a package that enables the server to
+   call to the National Park Services API and obtain the 
+   data.
 """
 def parks(request):
 
@@ -225,7 +245,9 @@ def parks(request):
         return redirect("ParkFinder-find_parks")
 
 """
-   Create the specific park for the web application.
+   Create the specific park page for the web application.
+   --> YOU MAY END UP DELETING THIS; TALK TO ANTHONY; I DO NOT
+   THINK YOU NEED IT.
 """
 def specific_park(request):
     return render(request, 'Parks/pages/specific_park.html')

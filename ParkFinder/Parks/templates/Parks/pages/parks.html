@@ -1,9 +1,20 @@
-<!-- 
-    Author: Andrew Krause
-    Description:
-        Blah blah blah...
--->
+<!--
+    The find_parks file utilizes the Django Template system to 
+    render relevant data about a given national park, place, or
+    monument to the screen. Data from the National Park Services
+    API is passed to this page, which organizes and sorts the
+    information into a readable format. The file contains code 
+    for dropdown buttons that render information about a given
+    place on the screen.
+     ...
+    Project: ParkFinder Web Application
+    Authors: Andrew Krause, Anthony Musbach, Gavin McClellan
+    Class: Introduction to Programming Languages (CS 224)   
+    Date: 12/06/2021
+    ...
+ -->
 
+<!-- Inlcude import statements -->
 {% extends "Parks/footer.html" %}
 {% load static %}
 
@@ -11,10 +22,12 @@
     <div class="container">
         <div class="body">
             
-            <!-- Create a for loop to obtain the initial state information from the dictionary. -->
-            <!-- A conditional is provided below to ensure that only the first item in the -->
-            <!-- dictionary is evaluated for this part as the first item is the only item with -->
-            <!-- the state information (obatained by clicking the state button) in it. -->
+            <!-- 
+                Create a for loop to obtain the initial state information from the dictionary.
+                A conditional is provided below to ensure that only the first item in the
+                dictionary is evaluated for this part as the first item is the only item with
+                the state information (obatained by clicking the state button) in it.
+            -->
             {% for park in parklist %}
 
                 <!-- Use an if-statement to check if the key exists in the dictionary -->
