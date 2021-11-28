@@ -136,7 +136,7 @@ ul {
 
 /* === FIND PARKS SECTION === */
 
-/* Style the button on the 'find trails' page. */
+/* Style the button on the 'find parks' page. */
 .find-parks-button {
     background-color: #125C13; /* Green */
     border: none;
@@ -150,6 +150,22 @@ ul {
     text-decoration: none;
     display: inline-block;
     font-size: 1.15rem;
+}
+
+/* Style the button on the 'find trails' page with longer names. */
+.find-parks-button-small-text {
+    background-color: #125C13; /* Green */
+    border: none;
+    width: 10.5rem;
+    border-radius: 0.5rem;
+    color: #FFAF24;
+    padding: 15px 32px;
+    margin-left: 0.25rem !important;
+    margin-right: 0.25rem !important;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 0.95rem;
 }
 
 /* Add a hover state to the button above. */
@@ -172,6 +188,19 @@ ul {
     margin-bottom: 1.5rem;
 }
 
+/* Make the back button centered on the page. */
+.back-button-position-step1 {
+    width: 100%;
+    /* position: fixed; */
+    /* bottom: 4rem; */
+}
+
+/* The class below helps with centering the back button. */
+.back-button-position-step2 {
+    margin-left: auto;
+    margin-right: auto;
+}
+
 /* Style the park button that is listed out on the page. */
 .park-button {
     display: block;
@@ -188,6 +217,30 @@ ul {
     margin-left: 1rem; */
 }
 
+/* Add spacing around the cards containing the park information. */
+.card-format {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+/* Style the background color of the dropdown button. */
+.dropdown-button-style {
+    border: none;
+    background-color: #125106;
+}
+
+/* Style the button that adds the park to a registered user's profile. */
+.add-to-profile {
+    border: none;
+    background-color: #125106;
+    margin-top: 1rem;
+    padding-top: 1rem;
+    text-align: center;
+    border-radius: 0.5rem;
+}
+
+/* ADD MORE???????????????????????????????????????????????????????????????????????????????????????????????????? */
+
 /* Style the button color. */
 .card-text-indent {
     text-align: left;
@@ -197,15 +250,11 @@ ul {
     margin-bottom: 1rem;
 }
 
-/* Style the link for directions for a given park. */
-.browner-text-hover:hover {
-    color: #c48300;
-}
-
 /* Style the image so that it spans the width of the button. */
 .img-format {
     display: block !important;
     width: 100% !important;
+    height: 100% !important;
     z-index: 0;
     margin: 0;
     padding: 0;
@@ -252,7 +301,7 @@ ul {
 
 /* Style the text in the footer section of the website. */
 .footer-design {
-    color: #FFAF24;
+    color: #125106;/*#FFAF24;*/
     text-align: center;
     margin-top: 0;
 }
@@ -270,6 +319,16 @@ ul {
     color: #125106;
 }
 
+/* Make the text light greenish. */
+.light-green-text {
+    color: #187519;
+}
+
+/* Style the link for directions for a given park. */
+.green-text-hover:hover {
+    color: #125106;
+}
+
 /* Add some space between the map on any page. */
 .map-styles {
     margin-top: 1rem;
@@ -278,7 +337,7 @@ ul {
 
 /* Style the background color of the footer section. */
 #footer-section {
-    background-color: #125106;
+    background-color: #FFAF24;/*#125106*/;
     margin-top: auto;
     padding-top: 1rem;
 }

@@ -8,60 +8,90 @@
 {% load static %}
 
 {% block content %}   
-   <div class="body">
-        <!-- Include a heading that indicates what state you are exploring for parks -->
-        <h1 class="home green-text">National Parks for <em>{{ state_name }}</em></h2>
-        
-        <!-- Include a map for the page that the user can use -->
-        <!-- BEGIN Hiking Project -->
-        <iframe class="map-styles" style="width:100%; max-width:600px; height:400px;" frameborder="0" scrolling="no" src="https://www.hikingproject.com/widget/map?favs=1&location=fixed&x=-12573242&y=5811847&z=6.4&h=500"></iframe>
-        <!-- END Hiking Project -->
+    <div class="container">
+        <div class="body">
+            
+            <!-- Create a for loop to obtain the initial state information from the dictionary. -->
+            <!-- A conditional is provided below to ensure that only the first item in the -->
+            <!-- dictionary is evaluated for this part as the first item is the only item with -->
+            <!-- the state information (obatained by clicking the state button) in it. -->
+            {% for park in parklist %}
 
-        <!-- Include the green line as a seperator -->
-        <hr class="green-line">
+                <!-- Use an if-statement to check if the key exists in the dictionary -->
+                {% if 'state_name_display' in park %}
 
+                    <!-- Include a heading that indicates what state you are exploring for parks -->    
+                    <h1 class="home green-text">National Parks and Places in <em>{{ park.state_name_display }}</em></h2>
 
-        <!-- 
-            Loop through the data passed through and list 
-            out all of the national parks in the given state
-        -->
-        <div>
-            <h3>TEST ONE (Delete later):</h1>
-            <h3>National Park Name: {{ full_name }}</h1>
-            <h4>Button state: {{ state_code }}</h1>
-            <h4>API state: {{ states }}</h1>
+                {% else %}
+                    <!-- Do nothing -->
+                {% endif %}
+            {% endfor %}
+
+            <!-- Include a map for the page that the user can use -->
+            {% comment %} <iframe class="map-styles" style="width:100%; max-width:600px; height:400px;" frameborder="0" scrolling="no" src="https://www.hikingproject.com/widget/map?favs=1&location=fixed&x=-12573242&y=5811847&z=6.4&h=500"></iframe> {% endcomment %}
+
+            <!-- Include the green line as a seperator -->
+            <hr class="green-line">
+
+            <!-- For loop to run through all of the sites in the state to display -->
+            {% for park in parklist %}
+                <!-- Check if the park or site is in the state button that was clicked -->
+                {% if park.state_code == park.states %}
+                    <!-- Create a card to display the park information -->
+                    <div class="card card-format">
+
+                        <!-- The button is collapsible and displays more information when clicked -->
+                        <button class="dropdown dropdown-button-style" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-parks{{ park.id }}" aria-expanded="false" aria-controls="collapse-parks{{ park.id }}">
+                            <div class="card-header">
+                                <h5 class="browner-text">{{ park.fullName }}</h5>
+                                <i class="browner-text fas fa-chevron-down"></i>
+                            </div>
+                        </button>
+
+                        <!-- The other content for the park/place is revealed when the button is clicked -->
+                        <div class="collapse" id="collapse-parks{{ park.id }}">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <img class="img-format" src="{{ park.image }}" alt="Card image cap">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <p class="card-text card-text-indent">{{ park.description }}</p>
+                                        <ul class="card-text-indent">
+                                            <li>State: {{ park.states }}</li>
+                                            <li>Latitude: {{ park.latitude }} <i class="fas fa-globe"></i></li>
+                                            <li>Longitude: {{ park.longitude }} <i class="fas fa-globe"></i></li>
+                                            <li><a class="light-green-text green-text-hover" href="{{ park.directionsUrl }}">Directions <i class="fas fa-map-marker-alt"></i></a></li>
+                                            <li>
+                                                <!-- The button below allows user with account to add the park to their profile -->
+                                                <!-- IMPLEMENT THIS IF YOU HAVE TIME!!! -->
+                                                <form class="" action="" method="">
+                                                    <button class="add-to-profile">
+                                                        <p class="browner-text">Add to My List <i class="fas fa-plus-circle"></i></p>
+                                                    </button>
+                                                </form>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                {% endif %}
+            {% endfor %}
+
         </div>
 
-
-        <!-- ADD A FOR LOOP TO SURROUND THE DIV RIGHT BELOW ONCE YOU GET THE API WORKING!!! -->
-
-
-        <!-- AS SOON AS YOU GET THE API WORKING, MAKE SURE YOU UNCOMMENT THE IF-STATEMENT CODE BELOW!!! -->
-        {% comment %} {% if state_code == states %} {% endcomment %}
-            <div class="card browner-text card-background-color" style="width: 25rem;">
-                <button type="submit" class="park-button card-background-color" data-bs-toggle="collapse" data-bs-target="#collapse-park" aria-expanded="false" aria-controls="collapse-events">
-                    <img class="card-img-top img-format" src="{{ image }}" alt="Card image cap">
-                    <div class="card-body">
-                        <h5 class="card-title browner-text">{{ fullName }}</h5>
-                    </div>
-                </button>
-
-                <div class="collapse" id="collapse-park"> 
-                    <p class="card-text card-text-indent">{{ description }}</p>
-                    <ul class="card-text-indent">
-                        <li>State: {{ states }}</li>
-                        <li>Latitude: {{ latitude }}</li>
-                        <li>Longitude: {{ longitude }}</li>
-                        <li><a class="browner-text browner-text-hover" href="{{ directionsUrl }}">Directions</a></li>
-                    </ul>
-                </div>
-            </div>
-        {% comment %} {% endif %} {% endcomment %}
-
         <!-- Include a back button. -->
-        <form action="{% url 'ParkFinder-find_parks' %}" method="POST">
-            {% csrf_token %}
-            <button type="submit" class="find-parks-button back-button"><i class="fas fa-arrow-left"></i> Back</button>
-        </form>
+        <div class="back-button-position-step2">
+            <div class="back-button-position-step1">
+                <form action="{% url 'ParkFinder-find_parks' %}" method="POST">
+                    {% csrf_token %}
+                    <button type="submit" class="find-parks-button back-button"><i class="fas fa-arrow-left"></i> Back</button>
+                </form>
+            </div>
+        </div>
    </div>
 {% endblock content %}     
