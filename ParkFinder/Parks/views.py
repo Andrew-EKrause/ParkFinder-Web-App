@@ -132,7 +132,8 @@ def parks(request):
 
     # Create variables that determine the number of 
     # iterations performed by the while loop.
-    NUMBER_OF_PARKS = NUMBER_OF_PLACES_IN_API # --> THIS SHOULD BE THE MAXIMUM NUMBER OF PLACES IN THE FINAL VERSION OF THE PROJECT!!!
+    # --> This should be the maximum number of places given by the NPS API.
+    NUMBER_OF_PARKS = NUMBER_OF_PLACES_IN_API 
     i = 0
     
     # Create a dictionary element to store the data from the JSON file.
