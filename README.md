@@ -6,7 +6,7 @@ INCLUDE LINK AFTER PROJECT IS COMPLETED
 
 ## Description
 **_Collaborative Web Application Project Created for Aptiv in CS 341 Course_** <br/>
-Collaborative group project for CS 224 class. Project is a park finder applicaton with various search features. The web applicatoin utilizes the National Park Servicre (NPS) API. Add more...ADD THIS FOLDER ONCE PROJECT IS COMPLETED.
+Collaborative group project for CS 224 class. Project is a park finder applicaton with various search features. The web applicatoin utilizes the National Park Servicre (NPS) API. ADD MORE...
 <p>&nbsp;</p>
 
 **Resources for Project:**
