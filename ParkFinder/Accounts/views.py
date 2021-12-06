@@ -15,7 +15,10 @@
 """
 
 # Create a list of imports to render the page on screen.
-from django.shortcuts import render
+from django.shortcuts import redirect, render
+from django.contrib.auth.models import user
+from django.contrib import messages
+from django.contrib.auth import authenticate, login
 
 """
    Create the login page for the ParkFinder web
@@ -23,8 +26,20 @@ from django.shortcuts import render
    login-protocols that the user follows to 
    login to an existing account.
 """
-def login(request):
-    return render(request, 'Accounts/login.html')
+def loginas(request):
+    if request.method == 'POST':
+        username = request.POST.get('username-field')
+        password = request.POST.get('password-field')
+
+        user = authenticate(username=username, password=password)
+
+        if user != None:
+            login(request, user)
+            return render(request, 'ParkFinder/home.html')
+        else:
+            messages.error(request, 'Incorrect Username or Password')
+
+    return render(request, 'Accounts/loginas.html')
 
 """
    Create the registration page for the web application.
@@ -32,6 +47,28 @@ def login(request):
    the user wishes to obtain an account for the website.
 """
 def register(request):
+    if request.method == 'POST':
+        fname = request.POST.get('firstname-field')
+        lname = request.POST.get('lastname-field')
+        email = request.POST.get('email-field')
+        username = request.POST.get('username-field')
+        password = request.POST.get('password-field')
+        passwordconf = request.POST.get('passwordconf-field')
+
+        if fname == None or lname == None or email == None or username == None or password == None or passwordconf == None:
+            messages.error(request, 'A field was left Empty')
+        else:
+            if password == passwordconf:
+                new_user = user.objects.create_user(username, email, password)
+                new_user.first_name = fname
+                new_user.last_name = lname
+                new_user.save()
+                messages.success(request, 'Your Account has been Successfully Created')
+
+                return redirect('login')
+            else:
+                messages.error(request, 'Passwords Do Not Match')
+
     return render(request, 'Accounts/register.html')
 
 """
