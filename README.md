@@ -1,6 +1,6 @@
 # *Park Finder Web Application*
 ## View the Project Here 
-ADD A LINK TO THE PROJECT WHEN IT IS COMPLETED
+ADD A LINK HERE WHEN THE PROJECT IS COMPLETED
 
 <p>&nbsp;</p>
 
