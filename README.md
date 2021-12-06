@@ -1,6 +1,6 @@
 # *Park Finder Web Application*
-## View the Project Here (Maybe delete and add back later)
-https://murmuring-journey-10745.herokuapp.com/
+## View the Project Here 
+ADD A LINK TO THE PROJECT WHEN IT IS COMPLETED
 
 <p>&nbsp;</p>
 
