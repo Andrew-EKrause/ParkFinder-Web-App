@@ -177,9 +177,17 @@ def parks(request):
         nps_description_attribute = nps_first_element['description']
         nps_latitude_attribute = nps_first_element['latitude']
         nps_longitude_attribute = nps_first_element['longitude']
-        nps_states_attribute = nps_first_element['states']
-        nps_directions_attribute = nps_first_element['directionsUrl']
         
+        # Create data attributes for the state(s) that 
+        # the national park or place is located in.
+        nps_states_attribute = nps_first_element['states']
+        nps_states_attribute = nps_states_attribute.split(",")
+        nps_states_attribute_list = ", "
+        nps_states_attribute_list = nps_states_attribute_list.join(nps_states_attribute)
+        
+        # Get the directions attribute to the national park or place.
+        nps_directions_attribute = nps_first_element['directionsUrl']
+                
         # Obtain image data from the API.
         nps_images_list = nps_first_element['images']
         nps_image_element = nps_images_list[0]
@@ -200,7 +208,7 @@ def parks(request):
             # state-code, for use in the frontend. --> MAYBE DELETE LATER!!!
             state_code = request.POST["state-code"].strip()
             nps_data_to_display["state_code"] = state_code
-        
+                    
         # Populate the dictionary with values to be displayed 
         # on the frontend of the website.
         nps_data_to_display["id"] = nps_id_attribute
@@ -209,6 +217,7 @@ def parks(request):
         nps_data_to_display["latitude"] = nps_latitude_attribute
         nps_data_to_display["longitude"] = nps_longitude_attribute
         nps_data_to_display["states"] = nps_states_attribute
+        nps_data_to_display["states_list"] = nps_states_attribute_list
         nps_data_to_display["directionsUrl"] = nps_directions_attribute
         nps_data_to_display["image"] = nps_image_attribute
         
@@ -246,7 +255,7 @@ def parks(request):
 
 """
    Create the specific park page for the web application.
-   --> YOU MAY END UP DELETING THIS; TALK TO ANTHONY; I DO NOT
+   --> YOU MAY END UP DELETING THIS; I DO NOT
    THINK YOU NEED IT.
 """
 def specific_park(request):

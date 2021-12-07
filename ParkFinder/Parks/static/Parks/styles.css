@@ -130,9 +130,10 @@ ul {
 /* Set the color for the background of the home screen. */
 .home-heading {
     color: #125C13;
-    font-size: 4rem;
+    font-size: 5rem;
     top: 50%;
     left: 50%;
+    line-height: 3rem;
 }
 
 /* Set the color for the background of the home screen. */
@@ -140,6 +141,13 @@ ul {
     color: #125C13;
     font-size: 2rem;
 }
+
+/* Insert an image for the homepage of the website --> FIX THIS LATER !!! */
+/* .container-home {
+    background-image: url("../Parks/images/Yellowstone.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+} */
 
 /* === FIND PARKS SECTION === */
 
