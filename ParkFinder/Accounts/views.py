@@ -16,7 +16,7 @@
 
 # Create a list of imports to render the page on screen.
 from django.shortcuts import redirect, render
-from django.contrib.auth.models import user
+from django.contrib.auth.models import User
 from django.contrib import messages
 from django.contrib.auth import authenticate, login
 
@@ -58,16 +58,21 @@ def register(request):
         if fname == None or lname == None or email == None or username == None or password == None or passwordconf == None:
             messages.error(request, 'A field was left Empty')
         else:
-            if password == passwordconf:
-                new_user = user.objects.create_user(username, email, password)
-                new_user.first_name = fname
-                new_user.last_name = lname
-                new_user.save()
-                messages.success(request, 'Your Account has been Successfully Created')
-
-                return redirect('login')
+            if User.odjects.filter(username=username):
+                messages.error(request, "Username already exists. Please try another username")
+            elif User.objects.filter(email=email):
+                messages.error(request, "Email is already registered. Please try another email")
             else:
-                messages.error(request, 'Passwords Do Not Match')
+                if password == passwordconf:
+                    new_user = User.objects.create_user(username, email, password)
+                    new_user.first_name = fname
+                    new_user.last_name = lname
+                    new_user.save()
+                    messages.success(request, 'Your Account has been Successfully Created')
+
+                    return redirect('login')
+                else:
+                    messages.error(request, 'Passwords Do Not Match')
 
     return render(request, 'Accounts/register.html')
 
