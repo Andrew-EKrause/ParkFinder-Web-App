@@ -142,3 +142,4 @@ CRISPY_TEMPLATE_PACK = "bootstrap4"
 
 # The user is redirected to their user profile when they login
 LOGIN_REDIRECT_URL = "ParkFinder-user_profile"
+LOGOUT_REDIRECT_URL = "ParkFinder-home"

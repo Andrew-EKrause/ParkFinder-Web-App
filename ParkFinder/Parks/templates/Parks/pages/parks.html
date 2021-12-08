@@ -19,7 +19,7 @@
 {% load static %}
 
 {% block content %}   
-    <div id="animate_chevron" class="container">
+    <div class="container">
         <div class="body">
             
             <!-- 
@@ -44,61 +44,81 @@
             <!-- Include the green line as a seperator -->
             <hr class="green-line">
 
-            <!-- For loop to run through all of the sites in the state to display -->
-            {% for park in parklist %}
+            <div id="animate-chevron">
+                <!-- For loop to run through all of the sites in the state to display -->
+                {% for park in parklist %}
 
-                <!-- Loop through the list of states that the national park or place is in and -->
-                <!-- check if any of the states match the state button that the user clicked -->
-                {% for state_abbreviation in park.states %}
+                    <!-- Loop through the list of states that the national park or place is in and -->
+                    <!-- check if any of the states match the state button that the user clicked -->
+                    {% for state_abbreviation in park.states %}
 
-                    <!-- Check if the park or site is in the state button that was clicked -->
-                    {% if park.state_code == state_abbreviation %}
-                        <!-- Create a card to display the park information -->
-                        <div class="card card-format"> <!-- id="animate-chevron" -->
+                        <!-- Check if the park or site is in the state button that was clicked -->
+                        {% if park.state_code == state_abbreviation %}
+                            <!-- Create a card to display the park information -->
+                            <div class="card card-format">
 
-                            <!-- The button is collapsible and displays more information when clicked -->
-                            <button class="dropdown dropdown-button-style" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-parks{{ park.id }}" aria-expanded="false" aria-controls="collapse-parks{{ park.id }}">
-                                <div id="container" class="card-header">
-                                    <h5 class="browner-text">{{ park.fullName }}</h5>
-                                    <i id="{{ park }}" class="icon browner-text fas fa-chevron-down"></i>
-                                </div>
-                            </button>
+                                <!-- The button is collapsible and displays more information when clicked -->
+                                <button id="{{ park.id }}" class="dropdown dropdown-button-style" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-parks{{ park.id }}" aria-expanded="false" aria-controls="collapse-parks{{ park.id }}">
+                                    
+                                    {% comment %} <script>
+                                        function rotateFunction() {
+                                            ar div = document.getElementById("TEST");
+                                            var icon = document.getElementById('animate-icon');
+                                            var open = false;
 
-                            <!-- The other content for the park/place is revealed when the button is clicked -->
-                            <div class="collapse" id="collapse-parks{{ park.id }}">
-                                <div class="card-body">
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <img class="img-format" src="{{ park.image }}" alt="Card image cap">
-                                        </div>
-                                        <div class="col-md-6">
-                                            <p class="card-text card-text-indent">{{ park.description }}</p>
-                                            <ul class="card-text-indent">
-                                                <li>States: {{ park.states_list }}</li>
-                                                <li>Latitude: {{ park.latitude }} <i class="fas fa-globe"></i></li>
-                                                <li>Longitude: {{ park.longitude }} <i class="fas fa-globe"></i></li>
-                                                <li><a class="light-green-text green-text-hover" href="{{ park.directionsUrl }}">Directions <i class="fas fa-map-marker-alt"></i></a></li>
-                                                <li>
-                                                    <!-- The button below allows user with account to add the park to their profile -->
-                                                    <!-- IMPLEMENT THIS IF YOU HAVE TIME!!! -->
-                                                    <form class="" action="add_to_list" method="POST">
-                                                        <button class="add-to-profile">
-                                                            <input></input>
-                                                            <p class="browner-text">Add to My List <i class="fas fa-plus-circle"></i></p>
-                                                        </button>
-                                                    </form>
-                                                </li>
-                                            </ul>
+                                            div.addEventListener('click', function(){
+                                                if(open){
+                                                icon.className = 'fa fa-arrow-down';  
+                                                } else{
+                                                icon.className = 'fa fa-arrow-down open';
+                                                }
+
+                                                open = !open;
+                                            });
+                                        }
+                                    </script> {% endcomment %}                  
+                                    
+                                    <div class="card-header"> 
+                                        <h5 class="card-heading-text browner-text">{{ park.fullName }}</h5>
+                                        <i class="animate-icon fas fa-chevron-down icon browner-text"></i>
+                                    </div>
+                                </button>
+
+                                <!-- The other content for the park/place is revealed when the button is clicked -->
+                                <div class="collapse" id="collapse-parks{{ park.id }}">
+                                    <div class="format-card-text card-body">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <img class="img-format" src="{{ park.image }}" alt="Card image cap">
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p class="card-text card-text-indent">{{ park.description }}</p>
+                                                <ul class="card-text-indent">
+                                                    <li>States: {{ park.states_list }}</li>
+                                                    <li>Latitude: {{ park.latitude }} <i class="fas fa-globe"></i></li>
+                                                    <li>Longitude: {{ park.longitude }} <i class="fas fa-globe"></i></li>
+                                                    <li><a class="light-green-text green-text-hover" href="{{ park.directionsUrl }}">Directions <i class="fas fa-map-marker-alt"></i></a></li>
+                                                    <li>
+                                                        <!-- The button below allows user with account to add the park to their profile -->
+                                                        <!-- IMPLEMENT THIS IF YOU HAVE TIME!!! -->
+                                                        <form class="" action="add_to_list" method="POST">
+                                                            <button class="add-to-profile">
+                                                                <input type="hidden" value="{{ park.fullName }}"></input>
+                                                                <p class="browner-text add-button">Add to My List <i class="fas fa-plus-circle"></i></p>
+                                                            </button>
+                                                        </form>
+                                                    </li>
+                                                </ul>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
+
                             </div>
-
-                        </div>
-                    {% endif %}
+                        {% endif %}
+                    {% endfor %}
                 {% endfor %}
-            {% endfor %}
-
+            </div>
         </div>
 
         <!-- Include a back button. -->

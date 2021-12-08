@@ -9,4 +9,15 @@
 
 {% block content %}
     <h2 class="home">This is the USER PROFILE page for our Python project!</h2>
+
+    <!-- Include a logout button so that the user can logout of their account. -->
+    <!-- The logout button is styled the same way as the back button for the site. -->
+    <div class="back-button-position-step2">
+        <div class="back-button-position-step1">
+            <form action="{% url 'Parkfinder-logout' %}" method="POST">
+                {% csrf_token %}
+                <button type="submit" class="find-parks-button back-button">Logout <i class="fas fa-sign-out-alt"></i></button>
+            </form>
+        </div>
+    </div>
 {% endblock content %}  

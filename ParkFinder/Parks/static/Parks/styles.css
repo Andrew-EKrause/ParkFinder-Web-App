@@ -67,10 +67,12 @@ ul {
     color: #c48300;
 }
 
+/* Style the font size of the home page. */
 .parkfinder-font-size {
     font-size: 2rem;
 }
 
+/* Style all of the navbar links on the navbar. */
 .all-navbar-links {
     padding-right: 1rem;
 }
@@ -107,11 +109,11 @@ ul {
     width: 12.5rem;
     border-radius: 1.875rem;
     color: #FFAF24;
-    padding: 15px 32px;
+    padding: 0.938rem 2rem;
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    font-size: 1.5rem;
+    font-size: 1.6rem;
     margin-right: 5rem; /* MAKE THIS WORK!!! */
     margin-left: 5rem; /* MAKE THIS WORK!!! */
 }
@@ -143,11 +145,12 @@ ul {
 }
 
 /* Insert an image for the homepage of the website --> FIX THIS LATER !!! */
-/* .container-home {
-    background-image: url("../Parks/images/Yellowstone.jpg");
-    background-size: cover;
-    background-repeat: no-repeat;
-} */
+.container-home {
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-left: auto;
+    margin-right: auto;
+}
 
 /* === FIND PARKS SECTION === */
 
@@ -158,7 +161,7 @@ ul {
     width: 10.5rem;
     border-radius: 0.5rem;
     color: #FFAF24;
-    padding: 15px 32px;
+    padding: 0.938rem 2rem;
     margin-left: 0.25rem !important;
     margin-right: 0.25rem !important;
     text-align: center;
@@ -244,6 +247,16 @@ ul {
     margin-bottom: 1rem;
 }
 
+/* Change the styling of the header text for each national park/place. */
+.card-heading-text {
+    font-size: 1.5rem;
+}
+
+/* Change the styling of the text inside each park/place card. */
+.format-card-text {
+    font-size: 1.2rem;
+}
+
 /* Style the background color of the dropdown button. */
 .dropdown-button-style {
     border: none;
@@ -256,31 +269,31 @@ ul {
     background-color: #125106;
     margin-top: 1rem;
     padding-top: 1rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
     text-align: center;
+    font-size: 1.2rem;
     border-radius: 0.5rem;
+    margin-bottom: 0;
 }
 
+/* Add a hover state to the button above. */
+.add-to-profile:hover {
+    background-color: #187519; /* Green */
+    transform: scale(1.05);
+}
 
-
-
-
-.fa-chevron-down {
-    color: #FFAF24;
+/* !!! The code below is for animating the arrows when you click  
+the buttons - this will be implemented in the future !!!  */
+/* .fa-arrow-down {
     transform: rotate(0deg);
-    transition: transform 0.5s linear;
+    transition: transform 1s linear;
 }
 
-.fa-chevron-down.open {
-    color: #FFAF24;
+.fa-arrow-down.open {
     transform: rotate(180deg);
-    transition: transform 0.5s linear;
-}
-
-
-
-
-
-/* ADD MORE???????????????????????????????????????????????????????????????????????????????????????????????????? */
+    transition: transform 1s linear;
+} */
 
 /* Style the button color. */
 .card-text-indent {
@@ -304,6 +317,29 @@ ul {
 
 /* === ABOUT PAGE SECTION === */
 
+/* Style the background directly behind the text. */
+.about-styles {
+    background-color: #125106;
+    border-radius: 1.563rem;
+    padding-top: 2.5rem;
+    padding-bottom: 2.5rem;
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+/* Color the link a different color on the about page. */
+.color-about-link { 
+    color: #FFAF24;
+}
+
+/* Style the color of the link within the text on the about page. */
+.color-about-link:hover {   
+    color:  #c48300;
+}
+
 /* Style the heading of the about page. */
 .about-heading {
     color: #125106;
@@ -315,9 +351,8 @@ ul {
     margin-right: 10%;
     margin-left: 10%;
     text-align: left;
-    border: 0.25rem;
-    border-style: solid;
-    border-color: #125106;
+    font-size: 1.25rem;;
+    color: #FFAF24;
     padding: 2%;
 }
 
@@ -331,6 +366,24 @@ ul {
 .inner {
     display: inline-block;
 }
+
+/* === LOGIN STYLES SECTION === */
+
+
+
+
+
+/* === REGISTER STYLES SECTION === */
+
+
+
+
+
+/* === PROFILE STYLES SECTION === */
+
+
+
+
 
 /* === UNIVERSAL STYLES SECTION === */
 
@@ -379,6 +432,6 @@ ul {
 /* Style the background color of the footer section. */
 #footer-section {
     background-color: #FFAF24;
-    margin-top: auto;
-    padding-top: 1rem;
+    margin-top: 0;
+    padding-top: 0;
 }

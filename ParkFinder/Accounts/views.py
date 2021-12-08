@@ -88,11 +88,3 @@ def register(request):
 """
 def user_profile(request):
     return render(request, 'Accounts/user_profile.html')
-
-"""
-    Logs a user out of their current account they are logged into.
-"""
-def logoutof(request):
-    logout(request)
-    messages.success(request, 'Logged out Successfully')
-    return redirect(request, 'Parks/home.html')

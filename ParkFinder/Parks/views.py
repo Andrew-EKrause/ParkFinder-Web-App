@@ -255,8 +255,8 @@ def parks(request):
 
 """
    Create the specific park page for the web application.
-   --> YOU MAY END UP DELETING THIS; I DO NOT
-   THINK YOU NEED IT.
+   --> YOU MAY END UP DELETING THIS; DO NOT
+   THINK YOU WILL NEED IT.
 """
 def specific_park(request):
     return render(request, 'Parks/pages/specific_park.html')
