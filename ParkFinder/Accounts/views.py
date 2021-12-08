@@ -18,7 +18,7 @@
 from django.shortcuts import redirect, render
 from django.contrib.auth.models import User
 from django.contrib import messages
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout
 
 """
    Create the login page for the ParkFinder web
@@ -28,11 +28,12 @@ from django.contrib.auth import authenticate, login
 """
 def loginas(request):
     if request.method == 'POST':
+        # gathers entered information
         username = request.POST.get('username-field')
         password = request.POST.get('password-field')
-
+        # checks that a user with the username and password entered exists
         user = authenticate(username=username, password=password)
-
+        
         if user != None:
             login(request, user)
             return render(request, 'Accounts/user_profile.html')
@@ -48,6 +49,7 @@ def loginas(request):
 """
 def register(request):
     if request.method == 'POST':
+        # gets all the entered user information
         fname = request.POST.get('firstname-field')
         lname = request.POST.get('lastname-field')
         email = request.POST.get('email-field')
@@ -55,6 +57,7 @@ def register(request):
         password = request.POST.get('password-field')
         passwordconf = request.POST.get('passwordconf-field')
 
+        # checks that all fields have been filled out and checks that username and email have not already been used.
         if fname == None or lname == None or email == None or username == None or password == None or passwordconf == None:
             messages.error(request, 'A field was left Empty')
         else:
@@ -63,7 +66,9 @@ def register(request):
             elif User.objects.filter(email=email):
                 messages.error(request, "Email is already registered. Please try another email")
             else:
+                # Checks that the two passwords entered match
                 if password == passwordconf:
+                    # creates a new user in the database with the entered information and returns user to home page
                     new_user = User.objects.create_user(username, email, password)
                     new_user.first_name = fname
                     new_user.last_name = lname
@@ -83,3 +88,11 @@ def register(request):
 """
 def user_profile(request):
     return render(request, 'Accounts/user_profile.html')
+
+"""
+    Logs a user out of their current account they are logged into
+"""
+def logoutof(request):
+    logout(request)
+    messages.success(request, 'Logged out Successfully')
+    return redirect(request, 'Parks/home.html')
