@@ -1,14 +1,34 @@
 <!-- 
     Author: Andrew Krause
     Description:
-        Blah blah blah...
+        Blah blah blah...ADD COMMENTS!!!
 -->
 
 {% extends "Parks/footer.html" %}
 {% load static %}
 
 {% block content %}
-    <h2 class="home">This is the USER PROFILE page for our Python project!</h2>
+    <h2 class="home">Welcome! Parks and places that you select will be added to your profile.</h2>
+    
+    <!-- Include breaks for spacing for now -->
+    <br>
+    <br>
+
+    {% comment %} <!-- Create the main containers for the main content on the website -->
+    <div class="container">
+        <div class="body">
+            
+            <!-- 
+                Create a for loop to obtain the information of the parks or places
+                that the user has added to their profile page on the website.
+            -->
+            {% for location in userlocations %}
+
+                <!-- Include a heading that indicates what state you are exploring for parks -->    
+                <h1 class="home green-text">{{ location }}/h2>
+            {% endfor %}
+        </div>
+    </div> {% endcomment %}
 
     <!-- Include a logout button so that the user can logout of their account. -->
     <!-- The logout button is styled the same way as the back button for the site. -->

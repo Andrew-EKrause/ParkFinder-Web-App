@@ -101,9 +101,10 @@
                                                     <li>
                                                         <!-- The button below allows user with account to add the park to their profile -->
                                                         <!-- IMPLEMENT THIS IF YOU HAVE TIME!!! -->
-                                                        <form class="" action="add_to_list" method="POST">
+                                                        <form class="" action="{% url 'ParkFinder-add_place' %}" method="POST">
+                                                            {% csrf_token %}
                                                             <button class="add-to-profile">
-                                                                <input type="hidden" value="{{ park.fullName }}"></input>
+                                                                <input id="park_name" type="hidden" value="{{ park.fullName }}"></input>
                                                                 <p class="browner-text add-button">Add to My List <i class="fas fa-plus-circle"></i></p>
                                                             </button>
                                                         </form>

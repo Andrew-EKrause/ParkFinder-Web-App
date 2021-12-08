@@ -75,7 +75,7 @@ def register(request):
                     new_user.save()
                     messages.success(request, 'Your Account has been Successfully Created')
 
-                    return redirect('loginas')
+                    return redirect("ParkFinder-loginas")
                 else:
                     messages.error(request, 'Passwords Do Not Match')
 

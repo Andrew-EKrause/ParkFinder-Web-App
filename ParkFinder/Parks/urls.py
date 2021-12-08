@@ -33,5 +33,6 @@ urlpatterns = [
     path("about/", views.about, name="ParkFinder-about"),
     path("find_parks/", views.find_parks, name="ParkFinder-find_parks"),
     path("parks/", views.parks, name="ParkFinder-parks"),
-    path("specific_park/", views.specific_park, name="ParkFinder-specific_park"), # --> THIS MAY CHANGE!!! WE MAY GET RID OF IT!!!
+    path("add_place/", views.add_place, name="ParkFinder-add_place"),
+    #path("specific_park/", views.specific_park, name="ParkFinder-specific_park"),
 ]

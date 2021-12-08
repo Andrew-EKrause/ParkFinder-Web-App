@@ -22,6 +22,12 @@ import requests
 import pip._vendor.requests 
 import urllib.request, json
 from natlparks import NatlParks
+from django.contrib.auth.models import User
+
+# For now create a global variable, a list, to store the places that
+# the user wants to visit in. This will be passed to the front end
+# of the user profile page.
+locations_list = []
 
 """
     Create the home page for the web application.
@@ -252,6 +258,47 @@ def parks(request):
         return render(request, 'Parks/pages/parks.html', park_list)
     else:
         return redirect("ParkFinder-find_parks")
+
+"""
+   Create a route for adding a park or place to the user profile
+   page. When a user wants to add a new park or place to their
+   profile, this route is activated.
+"""
+def add_place(request):
+    
+#     # If the method is a post request, check if the user is authenticated.
+#     if request.method == "POST":
+        
+#         # If the user is authenticated, render the data on the user's profile 
+#         # page. Otherwise, direct the user to the login page of the website.
+#         if request.user.is_authenticated:
+            
+#             # Get the value of the button.
+#             park_name = request.POST.get('park_name', '')
+#             print(park_name)
+            
+#             # Check if the data from the button click was passed through.
+#             # If the data was passed through, then process the data.
+#             if(park_name != None):
+                
+#                 # Append the place that the user wants to visit to
+#                 # the global variable
+#                 global locations_list
+#                 locations_list.append(park_name)
+                
+#                 # Store the data in a dictionary to be passed through.
+#                 user_locations = locations_list
+#                 data_to_display = {
+#                     "userlocations": user_locations
+#                 }
+                
+#                 # Render the user profile page with the data passed through.
+#                 return render(request, "Accounts/pages/user_profile.html", data_to_display)
+#             else:
+#                 # Render the user profile page without the data passed through.
+#                 return redirect("ParkFinder-user_profile")
+#         else:
+    return redirect("ParkFinder-loginas")
 
 """
    Create the specific park page for the web application.

@@ -28,6 +28,7 @@ urlpatterns = [
     path("login/", views.loginas, name="ParkFinder-loginas"),
     path("register/", views.register, name="ParkFinder-register"),
     path("user_profile/", views.user_profile, name="ParkFinder-user_profile"),
+    path("add_place/", views.user_profile, name="ParkFinder-user_profile"),
 ]
 
 # YOU MAY END UP DELETING THIS FILE LATER ON!!!
