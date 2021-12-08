@@ -1,0 +1,56 @@
+<!-- 
+    Author: Andrew Krause
+    Description:
+        Blah blah blah...
+-->
+
+{% extends "Parks/footer.html" %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% crispy form form.helper %}
+
+{% block content %}
+    <div class="row justify-content-center m-5">
+        <div class="col-sm-6 border p-5" style="background-color: #125106;">
+
+            <!-- If the user has not yet registered for an account, display -->
+            <!-- a message saying that they successfully registered. -->
+            {% if messages %}
+                {% for message in messages %}
+                    <div class="alert alert-{{ message.tags }}">
+                        {{ message }}
+                    </div>
+                {% endfor %}
+            {% endif %}
+
+            <!-- Create a form for the user to login -->
+            <form method="POST">
+                {% csrf_token %}
+                <fieldset class="">
+                    <legend class="">Welcome to Park Finder.</legend>
+                    {{ form | crispy }}
+                </fieldset>
+                <!-- Include the login button. -->
+                <button type="submit" class="find-parks-button back-button">Login <i class="fas fa-sign-in-alt"></i></button>
+            </form>
+
+            <!-- If the user does not already have an account, provide -->
+            <!-- them with a link to the registration page -->
+            <small class="text-muted">
+                {% comment %} Don't have an account? <a class="ml-2" href="{% url 'register' %} ">Create account</a> {% endcomment %}
+            </small>
+
+
+            {% comment %} <div class="col-lg-6 col-lg-offset-3">
+                <form method="POST">{% csrf_token %}
+                    <div class="input-group">
+                        {{ form | crispy }}
+                        <span class="input-group-btn">
+                            <button class="btn btn-default" type="submit">Subscribe</button> 
+                        </span>
+                    </div>
+                </form>
+            </div> {% endcomment %}
+        </div>
+    </div>
+{% endblock content %}  

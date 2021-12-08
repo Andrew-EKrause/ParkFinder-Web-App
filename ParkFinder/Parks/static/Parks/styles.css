@@ -95,7 +95,7 @@ ul {
 
 /* Style the color of the header section. */
 #navbar-header {
-    background-color: #125106; /* #125C13; */
+    background-color: #125106; 
 }
 
 /* === HOMEPAGE SECTION === */
@@ -322,7 +322,7 @@ ul {
 
 /* Style the text in the footer section of the website. */
 .footer-design {
-    color: #125106;/*#FFAF24;*/
+    color: #125106;
     text-align: center;
     margin-top: 0;
 }
@@ -358,7 +358,7 @@ ul {
 
 /* Style the background color of the footer section. */
 #footer-section {
-    background-color: #FFAF24;/*#125106*/;
+    background-color: #FFAF24;
     margin-top: auto;
     padding-top: 1rem;
 }
