@@ -43,5 +43,5 @@ urlpatterns = [
     path("", include("Accounts.urls")),
     path("register/", userviews.register, name="register"),
     path("login/", auth_views.LoginView.as_view(template_name="Accounts/loginas.html"), name="loginas"), # --> STILL NEED TO FIX THIS!!!
-    path("logout/", auth_views.LogoutView.as_view(template_name="Accounts/logout.html"), name="logoutof"), # --> STILL NEED TO FIX THIS!!!
+    path("logout/", auth_views.LogoutView.as_view(template_name="Accounts/logoutof.html"), name="logoutof"), # --> STILL NEED TO FIX THIS!!!
 ]

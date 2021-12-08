@@ -19,7 +19,7 @@
 {% load static %}
 
 {% block content %}   
-    <div class="container">
+    <div id="animate_chevron" class="container">
         <div class="body">
             
             <!-- 
@@ -54,13 +54,13 @@
                     <!-- Check if the park or site is in the state button that was clicked -->
                     {% if park.state_code == state_abbreviation %}
                         <!-- Create a card to display the park information -->
-                        <div id="{{ park.state }}" class="card card-format">
+                        <div class="card card-format"> <!-- id="animate-chevron" -->
 
                             <!-- The button is collapsible and displays more information when clicked -->
                             <button class="dropdown dropdown-button-style" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-parks{{ park.id }}" aria-expanded="false" aria-controls="collapse-parks{{ park.id }}">
                                 <div id="container" class="card-header">
                                     <h5 class="browner-text">{{ park.fullName }}</h5>
-                                    <i id="icon" class="icon browner-text fas fa-chevron-down"></i>
+                                    <i id="{{ park }}" class="icon browner-text fas fa-chevron-down"></i>
                                 </div>
                             </button>
 

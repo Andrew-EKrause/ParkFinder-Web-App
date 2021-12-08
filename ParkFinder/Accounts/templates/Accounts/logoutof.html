@@ -1,0 +1,20 @@
+<!-- 
+    Author: Andrew Krause
+    Description:
+        Blah blah blah...
+-->
+
+{% extends "Parks/footer.html" %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+    <div class="container">
+        <h1>You have been logged out!</h1>
+        <div>
+            <a href="{% url 'login' %}"><button class="btn btn-outline-dark" type="button">Login</button></a>
+        </div>
+    </div>
+
+    <h2 class="home">This is the LOGOUT page for our Python project!</h2>
+{% endblock content %}  
