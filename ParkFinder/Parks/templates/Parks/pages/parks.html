@@ -26,7 +26,7 @@
                 Create a for loop to obtain the initial state information from the dictionary.
                 A conditional is provided below to ensure that only the first item in the
                 dictionary is evaluated for this part as the first item is the only item with
-                the state information (obatained by clicking the state button) in it.
+                the state information (obtained by clicking the state button) in it.
             -->
             {% for park in parklist %}
 
@@ -54,13 +54,13 @@
                     <!-- Check if the park or site is in the state button that was clicked -->
                     {% if park.state_code == state_abbreviation %}
                         <!-- Create a card to display the park information -->
-                        <div class="card card-format">
+                        <div id="{{ park.state }}" class="card card-format">
 
                             <!-- The button is collapsible and displays more information when clicked -->
                             <button class="dropdown dropdown-button-style" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-parks{{ park.id }}" aria-expanded="false" aria-controls="collapse-parks{{ park.id }}">
                                 <div id="container" class="card-header">
                                     <h5 class="browner-text">{{ park.fullName }}</h5>
-                                    <i id="icon" class="browner-text fas fa-chevron-down"></i>
+                                    <i id="icon" class="icon browner-text fas fa-chevron-down"></i>
                                 </div>
                             </button>
 
@@ -81,8 +81,9 @@
                                                 <li>
                                                     <!-- The button below allows user with account to add the park to their profile -->
                                                     <!-- IMPLEMENT THIS IF YOU HAVE TIME!!! -->
-                                                    <form class="" action="" method="">
+                                                    <form class="" action="add_to_list" method="POST">
                                                         <button class="add-to-profile">
+                                                            <input></input>
                                                             <p class="browner-text">Add to My List <i class="fas fa-plus-circle"></i></p>
                                                         </button>
                                                     </form>

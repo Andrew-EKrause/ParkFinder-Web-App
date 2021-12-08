@@ -35,7 +35,7 @@ def loginas(request):
 
         if user != None:
             login(request, user)
-            return render(request, 'ParkFinder/home.html')
+            return render(request, 'Accounts/user_profile.html')
         else:
             messages.error(request, 'Incorrect Username or Password')
 
@@ -58,7 +58,7 @@ def register(request):
         if fname == None or lname == None or email == None or username == None or password == None or passwordconf == None:
             messages.error(request, 'A field was left Empty')
         else:
-            if User.odjects.filter(username=username):
+            if User.objects.filter(username=username):
                 messages.error(request, "Username already exists. Please try another username")
             elif User.objects.filter(email=email):
                 messages.error(request, "Email is already registered. Please try another email")
@@ -70,7 +70,7 @@ def register(request):
                     new_user.save()
                     messages.success(request, 'Your Account has been Successfully Created')
 
-                    return redirect('login')
+                    return redirect('loginas')
                 else:
                     messages.error(request, 'Passwords Do Not Match')
 

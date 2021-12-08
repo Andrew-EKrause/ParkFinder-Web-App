@@ -26,7 +26,7 @@
             <div class="col-lg-6 col-lg-offset-3">
                 <form method="POST">{% csrf_token %}
                     <div class="input-group">
-                        {{ form | crispy }}
+                        {% comment %} {{ form | crispy }} {% endcomment %}
                         <div class="input-group-prepend">
                             <span class="input-group-text" id="username-label">Username</span>
                         </div>
@@ -42,7 +42,7 @@
                         </span>
 
                         <span class="input-group-btn">
-                            {% comment %} <a href="{% url 'register' %}">Create an Account</a> {% endcomment %}
+                            <a href="{% url 'register' %}">Create an Account</a>
                         </span>
                     </div>
                 </form>
