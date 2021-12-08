@@ -42,6 +42,6 @@ urlpatterns = [
     path("", include("Parks.urls")),
     path("", include("Accounts.urls")),
     path("register/", userviews.register, name="register_user"),
-    path("login/", auth_views.LoginView.as_view(template_name="Accounts/login.html"), name="login"), # --> STILL NEED TO FIX THIS!!!
+    path("login/", auth_views.LoginView.as_view(template_name="Accounts/loginas.html"), name="loginas"), # --> STILL NEED TO FIX THIS!!!
     path("logout/", auth_views.LogoutView.as_view(template_name="Accounts/logout.html"), name="logout"), # --> STILL NEED TO FIX THIS!!!
 ]
