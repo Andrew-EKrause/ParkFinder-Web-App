@@ -11,8 +11,6 @@ This web application was created as part of a collaborative group project for ou
 
 Django, a Python-based server language, was used as the server framework of the website. Django includes different useful built-in functions that were used for the project such as administrator priviliges, a SQL database with certain capabilities, and user login/account functions. The Park Finder site is hosted on a Heroku server and is accessible by anyone on the world wide web. The website is currently responsive and can maintain a user-friendly interface when the display size is changed. However, the site is not yet mobile-friendly, which is a feature that will be implemented at a later time. The website will have additional functionalities added in the future to improve the user experience. As the creators of the web application, we hope you enjoy exploring the Park Finder site. A list of resources used for the website, functionalities, and future add-ons are listed below:
 
-<p>&nbsp;</p>
-
 **Resources for Project:**
 - Python
 - Django
