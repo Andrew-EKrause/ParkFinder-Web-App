@@ -1,6 +1,5 @@
 # **_Park Finder Web Application_**
-## **View the Project Here**
-### **https://park-finder-project.herokuapp.com/**
+## **[View the Project Here](https://park-finder-project.herokuapp.com/)**
 
 <p>&nbsp;</p>
 
