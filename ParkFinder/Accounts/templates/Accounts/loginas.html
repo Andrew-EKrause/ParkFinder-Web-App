@@ -10,8 +10,8 @@
 {% crispy form form.helper %}
 
 {% block content %}
-    <div class="container">
-        <div class="row">
+    <div class="row justify-content-center m-5">
+        <div class="col-sm-6 border p-5">
 
             <!-- If the user has not yet registered for an account, display -->
             <!-- a message saying that they successfully registered. -->
@@ -23,30 +23,19 @@
                 {% endfor %}
             {% endif %}
 
-            <div class="col-lg-6 col-lg-offset-3">
-                <form method="POST">{% csrf_token %}
-                    <div class="input-group">
-                        {{ form | crispy }}
-                        <div class="input-group-prepend">
-                            <span class="input-group-text" id="username-label">Username</span>
-                        </div>
-                        <input type="text" class="form-control" id="username-field" name="username-field" required>
+            <form method="POST">
+                {% csrf_token %}
+                <fieldset class="">
+                    {{ form | crispy }}
+                    <legend class="">Welcome!</legend>
+                    {{ form | crispy }}
+                </fieldset>
+                    <button class="btn btn-outline-dark mt-2" type="submit">Login</button>
+            </form>
 
-                        <div class="input-group-prepend">
-                            <span class="input-group-text" id="password-label">Password</span>
-                        </div>
-                        <input type="text" class="form-control" id="password-field" name="password-field" required>
-
-                        <span class="input-group-btn">
-                            <button class="btn btn-default" type="submit">Login</button>
-                        </span>
-
-                        <span class="input-group-btn">
-                            <a href="{% url 'ParkFinder-register' %}">Create an Account</a>
-                        </span>
-                    </div>
-                </form>
-            </div>
+            <small class="input-group-btn">
+                <a href="{% url 'ParkFinder-register' %}">Create an Account</a>
+            </small>
         </div>
     </div>
 {% endblock content %}  

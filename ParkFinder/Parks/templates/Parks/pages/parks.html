@@ -44,6 +44,7 @@
             <!-- Include the green line as a seperator -->
             <hr class="green-line">
 
+            <!-- Each park that is listed on a given park page contains a specific set of attributes -->
             <div id="animate-chevron">
                 <!-- For loop to run through all of the sites in the state to display -->
                 {% for park in parklist %}
@@ -54,67 +55,73 @@
 
                         <!-- Check if the park or site is in the state button that was clicked -->
                         {% if park.state_code == state_abbreviation %}
-                            <!-- Create a card to display the park information -->
-                            <div class="card card-format">
+                            
+                            <div class="card-encompassing col-md-12">
 
                                 <!-- The button is collapsible and displays more information when clicked -->
-                                <button id="{{ park.id }}" class="dropdown dropdown-button-style" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-parks{{ park.id }}" aria-expanded="false" aria-controls="collapse-parks{{ park.id }}">
-                                    
-                                    {% comment %} <script>
+                                <button id="{{ park.id }}" onclick="rotateFunction()" style="margin-bottom: 0;" class="container-fluid card card-format dropdown dropdown-button-style" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-parks{{ park.id }}" aria-expanded="false" aria-controls="collapse-parks{{ park.id }}">
+                                         
+                                    <!-- Add a script tag in order to utilize JavaScript for an animation -->
+                                    <script>
+                                        // Create a function to apply a rotation to the <i> tag  
+                                        // that contains a chevron arrow element on the parks page.
                                         function rotateFunction() {
-                                            ar div = document.getElementById("TEST");
-                                            var icon = document.getElementById('animate-icon');
-                                            var open = false;
 
-                                            div.addEventListener('click', function(){
-                                                if(open){
-                                                icon.className = 'fa fa-arrow-down';  
-                                                } else{
-                                                icon.className = 'fa fa-arrow-down open';
-                                                }
+                                            // Create variables to obtain the chevron element.
+                                            var value = "chevron" + event.currentTarget.id;
+                                            var element = document.getElementById(value);
 
-                                                open = !open;
-                                            });
+                                            // Rotate the chevron element if necessary.
+                                            if(element.classList.contains("rotate-chevron")) {
+                                                element.classList.remove("rotate-chevron");
+                                            } 
+                                            else {
+                                                element.classList.add("rotate-chevron");
+                                            }
                                         }
-                                    </script> {% endcomment %}                  
+                                    </script>
                                     
-                                    <div class="card-header"> 
+                                    <!-- Create a div to format the heading of each place listed within a given state -->
+                                    <div class="container-fluid card-header card-format"> 
                                         <h5 class="card-heading-text browner-text">{{ park.fullName }}</h5>
-                                        <i class="animate-icon fas fa-chevron-down icon browner-text"></i>
+                                        <i id="chevron{{ park.id }}" class="rotate-chevron-time fas fa-chevron-down fa-2x icon browner-text"></i>
                                     </div>
                                 </button>
 
-                                <!-- The other content for the park/place is revealed when the button is clicked -->
-                                <div class="collapse" id="collapse-parks{{ park.id }}">
-                                    <div class="format-card-text card-body">
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <img class="img-format" src="{{ park.image }}" alt="Card image cap">
-                                            </div>
-                                            <div class="col-md-6">
-                                                <p class="card-text card-text-indent">{{ park.description }}</p>
-                                                <ul class="card-text-indent">
-                                                    <li>States: {{ park.states_list }}</li>
-                                                    <li>Latitude: {{ park.latitude }} <i class="fas fa-globe"></i></li>
-                                                    <li>Longitude: {{ park.longitude }} <i class="fas fa-globe"></i></li>
-                                                    <li><a class="light-green-text green-text-hover" href="{{ park.directionsUrl }}">Directions <i class="fas fa-map-marker-alt"></i></a></li>
-                                                    <li>
-                                                        <!-- The button below allows user with account to add the park to their profile -->
-                                                        <!-- IMPLEMENT THIS IF YOU HAVE TIME!!! -->
-                                                        <form class="" action="{% url 'ParkFinder-add_place' %}" method="POST">
-                                                            {% csrf_token %}
-                                                            <button class="add-to-profile">
-                                                                <input id="park_name" type="hidden" value="{{ park.fullName }}"></input>
-                                                                <p class="browner-text add-button">Add to My List <i class="fas fa-plus-circle"></i></p>
-                                                            </button>
-                                                        </form>
-                                                    </li>
-                                                </ul>
+                                <!-- Create a card to display the park information -->
+                                <div class="card dropdown-button-style"> 
+
+                                    <!-- The other content for the park/place is revealed when the button is clicked -->
+                                    <div class="collapse" id="collapse-parks{{ park.id }}">
+                                        <div class="format-card-text card-body">
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <img class="img-format" src="{{ park.image }}" alt="Card image cap">
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <p class="card-text card-text-indent">{{ park.description }}</p>
+                                                    <ul class="card-text-indent">
+                                                        <li>States: {{ park.states_list }}</li>
+                                                        <li>Latitude: {{ park.latitude }} <i class="fas fa-globe"></i></li>
+                                                        <li>Longitude: {{ park.longitude }} <i class="fas fa-globe"></i></li>
+                                                        <li><a class="light-green-text green-text-hover" href="{{ park.directionsUrl }}">Directions <i class="fas fa-map-marker-alt"></i></a></li>
+                                                        <li>
+                                                            <!-- The button below allows user with account to add the park to their profile -->
+                                                            <!-- IMPLEMENT THIS IF YOU HAVE TIME!!! -->
+                                                            <form class="" action="{% url 'ParkFinder-add_place' %}" method="POST">
+                                                                {% csrf_token %}
+                                                                <button class="add-to-profile">
+                                                                    <input id="park_name" type="hidden" value="{{ park.fullName }}"></input>
+                                                                    <p class="browner-text add-button">Add to My List <i class="fas fa-plus-circle"></i></p>
+                                                                </button>
+                                                            </form>
+                                                        </li>
+                                                    </ul>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-
                             </div>
                         {% endif %}
                     {% endfor %}
@@ -122,7 +129,7 @@
             </div>
         </div>
 
-        <!-- Include a back button. -->
+        <!-- Include a back button -->
         <div class="back-button-position-step2">
             <div class="back-button-position-step1">
                 <form action="{% url 'ParkFinder-find_parks' %}" method="POST">

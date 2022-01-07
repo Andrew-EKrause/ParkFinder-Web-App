@@ -69,7 +69,7 @@ ul {
 
 /* Style the font size of the home page. */
 .parkfinder-font-size {
-    font-size: 2rem;
+    font-size: 2.5rem;
 }
 
 /* Style all of the navbar links on the navbar. */
@@ -80,7 +80,7 @@ ul {
 /* Set the color of the navbar link. */
 .navbar-dark .navbar-nav .nav-link {
     margin-left: 1rem;
-    font-size: 1.5rem;
+    font-size: 1.7rem;
     color: #FFAF24;
 }
 
@@ -106,14 +106,15 @@ ul {
 .home-button {
     background-color: #125106; /* Green */
     border: none;
-    width: 12.5rem;
-    border-radius: 1.875rem;
+    width: 14rem;
+    height: 5rem;
+    border-radius: 0.5rem;
     color: #FFAF24;
     padding: 0.938rem 2rem;
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    font-size: 1.6rem;
+    font-size: 1.7rem;
     margin-right: 5rem; /* MAKE THIS WORK!!! */
     margin-left: 5rem; /* MAKE THIS WORK!!! */
 }
@@ -158,7 +159,8 @@ ul {
 .find-parks-button {
     background-color: #125C13; /* Green */
     border: none;
-    width: 10.5rem;
+    width: 12.5rem;
+    height: 5rem;
     border-radius: 0.5rem;
     color: #FFAF24;
     padding: 0.938rem 2rem;
@@ -167,7 +169,7 @@ ul {
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    font-size: 1.15rem;
+    font-size: 1.5rem;
 }
 
 /* Add a hover state to the button above. */
@@ -180,7 +182,8 @@ ul {
 .find-parks-button-small-text {
     background-color: #125C13; /* Green */
     border: none;
-    width: 10.5rem;
+    width: 12.5rem;
+    height: 5rem;
     border-radius: 0.5rem;
     color: #FFAF24;
     padding: 15px 32px;
@@ -189,7 +192,7 @@ ul {
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    font-size: 0.95rem;
+    font-size: 1.3rem;
 }
 
 /* Add a hover state to the button above. */
@@ -198,9 +201,11 @@ ul {
     transform: scale(1.05);
 }
 
-/* Style the heading text on the 'find trails' page. */
+/* Style the heading text on the 'find parks' page. */
 .find-parks-text {
+    /* margin-top: 2rem; */
     color:#125106;
+    font-size: 2.5rem;
     padding: 1rem;
 }
 
@@ -208,8 +213,11 @@ ul {
 
 /* Style the back button on the parks page. */
 .back-button {
-    margin-top: 1rem;
-    margin-bottom: 1.5rem;
+    font-size: 1.5rem;
+    width: 12.5rem;
+    height: 5rem;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
 }
 
 /* Make the back button centered on the page. */
@@ -232,6 +240,31 @@ ul {
     border: 0;
 }
 
+/* Rotate the chevron on the website. */
+.rotate-chevron {
+    transform: rotate(180deg);
+}
+
+/* Add a animation duration to the animation on the website. */
+.rotate-chevron-time {
+    transition: all 500ms;
+}
+
+/* Add a hover feature to the cards on the website. */
+.card-encompassing {
+    background-color: #125106;
+    border-radius: 0.5rem;
+    /* box-shadow: 5px 5px 15px rgba(0,0,0, .5); --> KEEP COMMENTED OUT FOR NOW */
+    height: max-content; 
+}
+
+/* When a user hovers on a card, change the shadow of the card. --> KEEP COMMENTED OUT FOR NOW */
+/* .card-encompassing:hover {
+    border-radius: 0.5rem;
+    box-shadow: 5px 5px 15px rgba(0,0,0, .75);
+    height: max-content; 
+} */
+
 /* Style the card color. */
 .card-background-color {
     background-color: #125106;
@@ -243,24 +276,39 @@ ul {
 
 /* Add spacing around the cards containing the park information. */
 .card-format {
-    margin-top: 1rem;
-    margin-bottom: 1rem;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    border-radius: 0.5rem;
+    background-color: #125106;
+}
+
+/* Style the card header on the website. */
+.card-header {
+    border: none;
+    text-align: center;
 }
 
 /* Change the styling of the header text for each national park/place. */
 .card-heading-text {
-    font-size: 1.5rem;
+    font-size: 2rem;
+    text-align: center;
+}
+
+/* Add a background color for the card body of each card. */
+.card-body {
+    border-bottom-left-radius: 0.5rem;
+    border-bottom-right-radius: 0.5rem;
+    background-color: white;
 }
 
 /* Change the styling of the text inside each park/place card. */
 .format-card-text {
-    font-size: 1.2rem;
+    font-size: 1.5rem;
 }
 
 /* Style the background color of the dropdown button. */
 .dropdown-button-style {
     border: none;
-    background-color: #125106;
 }
 
 /* Style the button that adds the park to a registered user's profile. */
@@ -282,18 +330,6 @@ ul {
     background-color: #187519; /* Green */
     transform: scale(1.05);
 }
-
-/* !!! The code below is for animating the arrows when you click  
-the buttons - this will be implemented in the future !!!  */
-/* .fa-arrow-down {
-    transform: rotate(0deg);
-    transition: transform 1s linear;
-}
-
-.fa-arrow-down.open {
-    transform: rotate(180deg);
-    transition: transform 1s linear;
-} */
 
 /* Style the button color. */
 .card-text-indent {
@@ -318,7 +354,7 @@ the buttons - this will be implemented in the future !!!  */
 /* === ABOUT PAGE SECTION === */
 
 /* Style the background directly behind the text. */
-.about-styles {
+/* .about-styles {
     background-color: #125106;
     border-radius: 1.563rem;
     padding-top: 2.5rem;
@@ -328,7 +364,7 @@ the buttons - this will be implemented in the future !!!  */
     margin-right: auto;
     margin-top: 0.5rem;
     margin-bottom: 1rem;
-}
+} */
 
 /* Color the link a different color on the about page. */
 .color-about-link { 
@@ -342,18 +378,24 @@ the buttons - this will be implemented in the future !!!  */
 
 /* Style the heading of the about page. */
 .about-heading {
+    margin-top: 2rem;
     color: #125106;
-    font-size: 2rem;
+    font-size: 2.5rem;
 }
 
 /* Align the text to the right side of the screen. */
 .about-text {
-    margin-right: 10%;
-    margin-left: 10%;
+    background-color: #125106;
+    border-radius: 0.5rem;
+    padding: 2rem;
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 0.5rem;
+    margin-bottom: 1rem;
     text-align: left;
-    font-size: 1.25rem;;
+    font-size: 1.5rem;;
     color: #FFAF24;
-    padding: 2%;
 }
 
 /* Create an id selector to align buttons on the same line. */
@@ -403,13 +445,14 @@ the buttons - this will be implemented in the future !!!  */
 /* Style the line and make it greenish. */
 .green-line {
     color: #125106;
-    opacity: 50%;
+    opacity: 100%;
     height: 0.25rem !important;
     border: none;
 }
 
 /* Make the text greenish. */
 .green-text {
+    margin-top: 2rem;
     color: #125106;
 }
 
