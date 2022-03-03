@@ -98,6 +98,7 @@ ul {
 /* Style the color of the header section. */
 #navbar-header {
     background-color: #125106; 
+    border-bottom: 1px solid #c48300;
 }
 
 /* === HOMEPAGE SECTION === */
