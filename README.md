@@ -3,6 +3,9 @@
 
 <p>&nbsp;</p>
 
+###### Home Page of ParkFinder
+<img width="1680" alt="Screen Shot 2022-09-08 at 12 36 55 AM" src="https://user-images.githubusercontent.com/57727121/189042649-13b6d74a-4f13-4b14-98f8-9cd4233cc7ef.png">
+
 ## **Description**
 
 **_Collaborative Web Application Project Created in CS 224 Course_** <br/>
