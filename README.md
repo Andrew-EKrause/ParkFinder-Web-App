@@ -81,6 +81,6 @@ If you decide to login as a user to further explore or test out the Park Finder 
 
 **_@Author: Gavin McClellan_** <br/>
 *GitHub:* https://github.com/weekendjedi <br/>
-*LinkedIn:* TBD <br/>
+*LinkedIn:* https://www.linkedin.com/in/gavinmcclellan/ <br/>
 *Instagram:* https://www.instagram.com/gavinmcclellan/ <br/>
 *Facebook:* https://www.facebook.com/profile.php?id=100009037394098 <br/>
