@@ -1,1 +1,1 @@
-web: gunicorn ParkFinder.wsgi
+web: gunicorn ParkFinder.ParkFinder.wsgi
