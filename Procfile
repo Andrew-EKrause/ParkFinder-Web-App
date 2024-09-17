@@ -1,1 +1,1 @@
-pipenv run gunicorn --pythonpath ParkFinder ParkFinder.wsgi
+web: gunicorn --pythonpath ParkFinder ParkFinder.wsgi
