@@ -38,7 +38,7 @@ SECRET_KEY = 'django-insecure-8%7rmr#uazeq9m7cgb%-tp^+r6a0mna4q+fa$m&88syxqu&uys
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['park-finder-project.herokuapp.com']
 
 
 # Application definition
