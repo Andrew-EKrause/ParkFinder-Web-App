@@ -9,6 +9,7 @@ django-crispy-forms = "*"
 requests = "*"
 python-natlparks = "*"
 gunicorn = "*"
+django-debug-toolbar = "*"
 
 [dev-packages]
 
