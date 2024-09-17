@@ -1,1 +1,1 @@
-web: gunicorn --pythonpath ParkFinder ParkFinder.wsgi
+web gunicorn --pythonpath ParkFinder ParkFinder.wsgi:application --log-file -
