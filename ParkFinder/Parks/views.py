@@ -207,12 +207,12 @@ def parks(request):
         # which is the name of the state. This action is only 
         # completed once, which is indicated by the conditional.
         if(i == 0):
-            state_name = request.POST["state"].strip()
+            state_name = request.POST.get('state', '').strip()
             nps_data_to_display["state_name_display"] = state_name
             
             # Also add the state abbreviation, called
             # state-code, for use in the frontend. --> MAYBE DELETE LATER!!!
-            state_code = request.POST["state-code"].strip()
+            state_code = request.POST.get('state-code', '').strip()
             nps_data_to_display["state_code"] = state_code
                     
         # Populate the dictionary with values to be displayed 
@@ -229,12 +229,12 @@ def parks(request):
         
         # Add the state name, for use in the frontend, to
         # every dictionary in order to perform checks. --> MAYBE DELETE LATER!!!
-        state_name = request.POST["state"].strip()
+        state_name = request.POST.get('state', '').strip()
         nps_data_to_display["state_name"] = state_name
             
         # Also add the state abbreviation, called
         # state-code, for use in the frontend. 
-        state_code = request.POST["state-code"].strip()
+        state_code = request.POST.get('state-code', '').strip()
         nps_data_to_display["state_code"] = state_code
         
         # Push the dictionary to a list that will be passed into the frontend.
